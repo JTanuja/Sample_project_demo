@@ -1,0 +1,36 @@
+name : CPP Sample Project
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake
+        
+      - name: Build
+        run : |
+          mkdir build
+          cd build
+          cmake ..
+          make
+
+      - name: Run tests
+        run : |
+          cd build
+          make test
+      - name : Create executable
+        run : |
+          cd build
+          make 
+
