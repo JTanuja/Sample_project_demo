@@ -1,10 +1,10 @@
-cmake_minimum_required(3.30.5)
+cmake_minimum_required(VERSION 3.22) 
 
-project("Hello")
+project("Hello") 
 
-include_directories(lib)
-add_library(calc lib/calculate.cpp)
+include_directories(lib) 
+add_library(calc lib/calculate.cpp) 
+add_executable(main main.cpp) 
+target_link_libraries(main calc)
 
-add_executable(a.out main.cpp)
-target_link_libraries(a.out calc)
 
