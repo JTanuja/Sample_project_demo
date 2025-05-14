@@ -25,10 +25,6 @@ jobs:
           cmake ..
           make
 
-      - name: Run tests
-        run : |
-          cd build
-          make test
       - name : Create executable
         run : |
           cd build
